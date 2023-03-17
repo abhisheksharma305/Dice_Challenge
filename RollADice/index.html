@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice</title>
+    <style>
+        #d{
+            border: 2px solid black;
+            height:550px;
+            width:70%;
+            margin-left: 200px;
+            background-color: lightblue;
+        }
+        #heading{
+            margin-top: 3%;
+            margin-left: 40%;
+        }
+
+        #p1{
+            font-size: larger;
+            margin-left: 25%;
+            float:left;
+        }
+        #p2{
+            font-size: larger;
+            margin-right: 25%;
+            float:right;
+        }
+
+        #d1{
+            height:250px;
+            width:60%;
+            margin-left: 18%;
+            margin-top: 9%;
+            padding:2%;
+        }
+        #img1{
+            width:45%; 
+            height:auto;
+        }
+        #img2{
+            width:45%; 
+            height:auto;
+            margin-left:25px;
+        }
+
+        #button{
+            border: 2px solid black;
+            font-size: large;
+            background-color: rgba(27, 214, 99, 0.87);
+            height: 50px;
+            width: 20%;
+            margin-left: 38%;
+            margin-top:15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>  
+<body>
+
+    <div id="d">
+    <h1 id="heading">Let's Play</h1>
+    <h4 id="p1">Player 1</h4>
+    <h4 id="p2">Player 2</h4>
+    <div id="d1">
+    <img id="img1" src="6.png">
+    <img id="img2" src="6.png">
+    </div>
+    <button id="button" onclick="func()">Roll the Dice</button>                           
+    </div>
+
+    <script>
+        function func(){
+            var r1 = Math.floor(Math.random() * 6) + 1;
+            var r2 = Math.floor(Math.random() * 6) + 1;
+
+            var ig1=document.getElementById("img1");
+            var ig2=document.getElementById("img2");
+
+            if (r1 == 1) ig1.src="1.png";
+            else if (r1 == 2) ig1.src="2.png";
+            else if (r1 == 3) ig1.src="3.png";
+            else if (r1 == 4) ig1.src="4.png";
+            else if (r1 == 5) ig1.src="5.png";
+            else ig1.src="6.png";
+
+            if(r2 == 1) ig2.src="1.png";
+            else if (r2 == 2) ig2.src="2.png";
+            else if (r2 == 3) ig2.src="3.png";
+            else if (r2 == 4) ig2.src="4.png";
+            else if (r2 == 5) ig2.src="5.png";
+            else ig2.src="6.png";
+
+            if(r1>r2){
+                document.getElementById("heading").innerHTML="Player1 WINS";
+            }
+            else if(r2>r1){
+                document.getElementById("heading").innerHTML="Player2 WINS";
+            }
+            else{
+                document.getElementById("heading").innerHTML="Match Draw!";
+            }
+        }
+    </script>
+</body>
+</html>
